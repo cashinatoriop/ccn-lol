@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Start</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="page">
+
+    <section class="clockblock">
+      <h1 id="clock" class="clock">--:--</h1>
+      <p id="greeting" class="greeting">Loading…</p>
+    </section>
+
+    <section class="searchblock">
+      <form id="searchForm" class="searchform" autocomplete="off">
+        <select id="engine" class="engine" aria-label="Search engine">
+          <option value="https://www.google.com/search?q=">Google</option>
+          <option value="https://duckduckgo.com/?q=">DuckDuckGo</option>
+          <option value="https://www.bing.com/search?q=">Bing</option>
+        </select>
+        <input id="query" class="query" type="text" placeholder="Search the web" />
+      </form>
+    </section>
+
+    <section class="linksblock">
+      <div class="linksheader">
+        <h2>Links</h2>
+        <button id="addLinkBtn" class="ghostbtn" type="button">+ add</button>
+      </div>
+      <ul id="linkList" class="linklist"></ul>
+    </section>
+
+  </main>
+
+  <!-- template used by script.js to add a new link row -->
+  <template id="linkItemTemplate">
+    <li class="linkitem">
+      <a class="linkitem-anchor" href="#" target="_self" rel="noopener">
+        <span class="linkitem-dot" aria-hidden="true"></span>
+        <span class="linkitem-name"></span>
+      </a>
+      <button class="linkitem-remove" type="button" aria-label="Remove link">×</button>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
