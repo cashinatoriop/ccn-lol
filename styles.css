@@ -1,0 +1,205 @@
+:root {
+  --ink: #10131a;
+  --card: #171b24;
+  --line: #262c39;
+  --text: #e7e4da;
+  --muted: #8a8f9c;
+  --amber: #e0a458;
+
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--sans);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  width: min(560px, 90vw);
+  padding: 2rem 0 4rem;
+}
+
+/* --- clock --- */
+
+.clockblock {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.clock {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(3rem, 10vw, 5rem);
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.greeting {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* --- search --- */
+
+.searchblock {
+  margin-bottom: 3rem;
+}
+
+.searchform {
+  display: flex;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.15s ease;
+}
+
+.searchform:focus-within {
+  border-bottom-color: var(--amber);
+}
+
+.engine {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  padding: 0.6rem 0.5rem 0.6rem 0;
+  outline: none;
+}
+
+.engine option {
+  background: var(--card);
+  color: var(--text);
+}
+
+.query {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  padding: 0.6rem 0.2rem;
+  outline: none;
+}
+
+.query::placeholder {
+  color: var(--muted);
+}
+
+/* --- links --- */
+
+.linksheader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.linksheader h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin: 0;
+  color: var(--text);
+}
+
+.ghostbtn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+}
+
+.ghostbtn:hover,
+.ghostbtn:focus-visible {
+  color: var(--amber);
+}
+
+.linklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.linkitem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.linkitem-anchor {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 0.2rem;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.98rem;
+}
+
+.linkitem-anchor:hover .linkitem-name,
+.linkitem-anchor:focus-visible .linkitem-name {
+  color: var(--amber);
+}
+
+.linkitem-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.linkitem-remove {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.5rem;
+  visibility: hidden;
+}
+
+.linkitem:hover .linkitem-remove {
+  visibility: visible;
+}
+
+.linkitem-remove:hover,
+.linkitem-remove:focus-visible {
+  color: var(--amber);
+}
+
+/* keyboard focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 1px solid var(--amber);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
